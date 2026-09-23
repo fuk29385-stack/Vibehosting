@@ -1218,3 +1218,170 @@ button {
   display: none !important;
 }
 
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 28px, 1200px);
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 14px 0;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px 22px;
+  }
+
+  .header-tools {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-box {
+    flex: 1;
+    width: auto;
+    max-width: 420px;
+  }
+
+  .hero,
+  .about,
+  .contacts,
+  .mini-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-copy p,
+  .mini-hero-copy p {
+    max-width: none;
+  }
+
+  .category-grid,
+  .features-grid,
+  .product-grid,
+  .mini-grid,
+  .mini-compare {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalog-header,
+  .promo-content,
+  .mini-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    width: min(100% - 20px, 1200px);
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .header-inner {
+    min-height: auto;
+    gap: 14px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+  }
+
+  .main-nav {
+    gap: 10px 16px;
+    font-size: 0.87rem;
+  }
+
+  .header-tools {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .search-box {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .header-tools .icon-button,
+  .header-tools .cart-button,
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+  }
+
+  .hero,
+  .category-grid,
+  .features-grid,
+  .product-grid,
+  .mini-grid,
+  .mini-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .filter-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .catalog-controls select {
+    min-width: 100%;
+  }
+
+  .product-info,
+  .mini-product-body {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .mini-price-row,
+  .price-box,
+  .cart-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price,
+  .mini-price-row strong {
+    font-size: 1.35rem;
+  }
+
+  .contact-form,
+  .modal-dialog {
+    padding: 18px 16px;
+  }
+
+  .scroll-top {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
