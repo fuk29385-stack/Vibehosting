@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PawShop — всё для счастливых питомцев</title>
+    <meta
+      name="description"
+      content="PawShop — современный зоомагазин с товарами для собак, кошек и домашних любимцев."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header" id="top">
+        <div class="container header-inner">
+          <a href="#top" class="logo" aria-label="PawShop home">
+            <span class="logo-mark">🐾</span>
+            <span>PawShop</span>
+          </a>
+
+          <nav class="main-nav" aria-label="Основное меню">
+            <a href="#top">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#about">О нас</a>
+            <a href="#contacts">Контакты</a>
+          </nav>
+
+          <div class="header-tools">
+            <label class="search-box" aria-label="Поиск товаров">
+              <span class="search-icon">⌕</span>
+              <input id="searchInput" type="search" placeholder="Поиск" />
+            </label>
+
+            <button class="icon-button" id="favoriteButton" type="button" aria-label="Избранное">
+              <span>♡</span>
+              <span class="count" id="favoriteCount">0</span>
+            </button>
+
+            <button class="cart-button" id="cartButton" type="button" aria-label="Корзина">
+              <span>🛒</span>
+              <span>Корзина</span>
+              <span class="count" id="cartCount">0</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero container section-space">
+          <div class="hero-copy">
+            <span class="eyebrow">Забота о каждом хвосте</span>
+            <h1>Всё для счастливых питомцев</h1>
+            <p>
+              Удобные корма, безопасные игрушки, стильные аксессуары и всё необходимое,
+              чтобы ваш любимец чувствовал себя в гармонии каждый день.
+            </p>
+            <div class="hero-actions">
+              <a class="primary-btn" href="#catalog">Смотреть каталог</a>
+              <button class="secondary-btn" id="promoButton" type="button">Получить промокод</button>
+            </div>
+            <div class="hero-stats">
+              <div>
+                <strong>12k+</strong>
+                <span>довольных питомцев</span>
+              </div>
+              <div>
+                <strong>4.9/5</strong>
+                <span>средний рейтинг</span>
+              </div>
+              <div>
+                <strong>24/7</strong>
+                <span>поддержка</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="image-card">
+              <img src="images/hero-pet.svg" alt="Собака и кошка в уютной среде" />
+            </div>
+          </div>
+        </section>
+
+        <section class="categories container section-space">
+          <div class="section-heading">
+            <span class="eyebrow">Категории</span>
+            <h2>Подберите идеальные товары</h2>
+          </div>
+
+          <div class="category-grid">
+            <button class="category-card" type="button" data-category="dogs">
+              <span class="category-icon">🐶</span>
+              <span>Собаки</span>
+            </button>
+            <button class="category-card" type="button" data-category="cats">
+              <span class="category-icon">🐱</span>
+              <span>Кошки</span>
+            </button>
+            <button class="category-card" type="button" data-category="toys">
+              <span class="category-icon">🧶</span>
+              <span>Игрушки</span>
+            </button>
+            <button class="category-card" type="button" data-category="accessories">
+              <span class="category-icon">🎀</span>
+              <span>Аксессуары</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="catalog container section-space" id="catalog">
+          <div class="catalog-header">
+            <div>
+              <span class="eyebrow">Каталог</span>
+              <h2>Лучший выбор для вашего питомца</h2>
+            </div>
+
+            <div class="catalog-controls">
+              <select id="sortSelect" aria-label="Сортировка товаров">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">По цене: ↑</option>
+                <option value="price-desc">По цене: ↓</option>
+                <option value="rating-desc">По рейтингу</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="catalog-toolbar">
+            <div class="filter-group" aria-label="Фильтры категорий">
+              <button class="filter-button active" type="button" data-filter="all">Все</button>
+              <button class="filter-button" type="button" data-filter="dogs">Собаки</button>
+              <button class="filter-button" type="button" data-filter="cats">Кошки</button>
+              <button class="filter-button" type="button" data-filter="toys">Игрушки</button>
+              <button class="filter-button" type="button" data-filter="accessories">Аксессуары</button>
+            </div>
+          </div>
+
+          <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        </section>
+
+        <section class="features container section-space">
+          <div class="section-heading center">
+            <span class="eyebrow">Почему мы</span>
+            <h2>Забота, качество и скорость</h2>
+          </div>
+
+          <div class="features-grid">
+            <article class="feature-card">
+              <div class="feature-icon">🚚</div>
+              <h3>Быстрая доставка</h3>
+              <p>Доставляем заказы в кратчайшие сроки по Москве и регионам.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">✅</div>
+              <h3>Качество</h3>
+              <p>Только проверенные бренды и безопасные материалы для домашних любимцев.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">💬</div>
+              <h3>Поддержка</h3>
+              <p>Наша команда помогает выбрать лучший товар и ответит на любые вопросы.</p>
+            </article>
+            <article class="feature-card">
+              <div class="feature-icon">🐾</div>
+              <h3>Забота о питомцах</h3>
+              <p>Мы создаём комфорт, чтобы каждый питомец получал только лучшее.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="promo-strip container section-space">
+          <div class="promo-content">
+            <div>
+              <span class="eyebrow accent">Специальное предложение</span>
+              <h2>Скидка 20% на первый заказ</h2>
+            </div>
+            <button class="primary-btn" id="promoButtonStrip" type="button">Получить промокод</button>
+          </div>
+        </section>
+
+        <section class="about container section-space" id="about">
+          <div class="about-media">
+            <img src="images/about-pets.svg" alt="Домашние питомцы на прогулке" />
+          </div>
+
+          <div class="about-copy">
+            <span class="eyebrow">О нас</span>
+            <h2>Мы знаем, что любят ваши питомцы</h2>
+            <p>
+              PawShop — это магазин, созданный для тех, кто любит своих домашних животных так же,
+              как и членов семьи. Мы подбираем товары, которые делают быт животных уютнее,
+              безопаснее и интереснее.
+            </p>
+            <p>
+              Наш ассортимент включает полезные корма, качественные аксессуары, долговечные игрушки
+              и витамины, которые поддерживают здоровье и хорошее настроение питомцев в любом возрасте.
+            </p>
+            <ul class="about-list">
+              <li>Проверенные бренды и безопасные материалы</li>
+              <li>Подарки и акции для постоянных клиентов</li>
+              <li>Подбор товаров под особенности питомца</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="reviews container section-space">
+          <div class="section-heading center">
+            <span class="eyebrow">Отзывы</span>
+            <h2>Питомцы и их хозяева довольны</h2>
+          </div>
+
+          <div class="reviews-grid">
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>«Отличный магазин: всё пришло быстро, а игрушки реально нравятся нашему щенку.»</p>
+              <div class="review-author">
+                <strong>Анна М.</strong>
+                <span>хозяйка бигля</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>«Подобрали корм и аксессуары по рекомендациям — всё очень качественно и удобно.»</p>
+              <div class="review-author">
+                <strong>Максим К.</strong>
+                <span>владелец кота</span>
+              </div>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>«Понравился сервис, быстро ответили на вопросы и помогли с выбором подарка.»</p>
+              <div class="review-author">
+                <strong>Елена С.</strong>
+                <span>любительница собак</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="contacts container section-space" id="contacts">
+          <div class="contact-details">
+            <span class="eyebrow">Контакты</span>
+            <h2>Свяжитесь с нами</h2>
+            <ul class="contact-list">
+              <li>📍 Москва, ул. Лесная, 18</li>
+              <li>📞 +7 (495) 123-45-67</li>
+              <li>✉️ hello@pawshop.ru</li>
+            </ul>
+          </div>
+
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-field">
+              <label for="name">Имя</label>
+              <input id="name" name="name" type="text" placeholder="Ваше имя" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="example@mail.com" />
+            </div>
+            <div class="form-field">
+              <label for="message">Сообщение</label>
+              <textarea id="message" name="message" rows="4" placeholder="Напишите нам..."></textarea>
+            </div>
+            <button class="primary-btn" type="submit">Отправить сообщение</button>
+          </form>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <div>
+            <a href="#top" class="logo footer-logo">
+              <span class="logo-mark">🐾</span>
+              <span>PawShop</span>
+            </a>
+          </div>
+          <div class="footer-links">
+            <a href="#catalog">Каталог</a>
+            <a href="#about">О нас</a>
+            <a href="#contacts">Контакты</a>
+          </div>
+          <div class="copyright">© 2026 PawShop. Все права защищены.</div>
+        </div>
+      </footer>
+    </div>
+
+    <button class="scroll-top" id="scrollTop" type="button" aria-label="Наверх">↑</button>
+
+    <div class="modal" id="cartModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="cartModal"></div>
+      <div class="modal-dialog cart-modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+        <div class="modal-header">
+          <h3 id="cartTitle">Корзина</h3>
+          <button class="close-btn" type="button" data-close="cartModal" aria-label="Закрыть корзину">×</button>
+        </div>
+        <div class="cart-content" id="cartContent"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="promoModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="promoModal"></div>
+      <div class="modal-dialog promo-modal" role="dialog" aria-modal="true" aria-labelledby="promoTitle">
+        <div class="modal-header">
+          <h3 id="promoTitle">Ваш промокод</h3>
+          <button class="close-btn" type="button" data-close="promoModal" aria-label="Закрыть промокод">×</button>
+        </div>
+        <div class="promo-content-box">
+          <p>Используйте промокод при оформлении заказа:</p>
+          <div class="promo-code" id="promoCodeBox">PAWS20</div>
+          <button class="primary-btn" type="button" id="copyPromoCode">Копировать</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="true"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+    
